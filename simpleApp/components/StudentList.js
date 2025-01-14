@@ -17,6 +17,11 @@ export default function StudentList({ route }) {
     }
   }, [route.params?.newStudent]);
 
+  function deleteStudent(stuId) {
+    const updatedStuArray = mystudents.filter((stu) => stu.id !== stuId);
+    setStudents(updatedStuArray);
+  }
+
   return (
     <View style={styles.container}>
       <FlatList
@@ -28,6 +33,14 @@ export default function StudentList({ route }) {
             onPress={() => navigation.navigate("Profile", { student: item })}
           >
             <Text styles={styles.item}>{item.name}</Text>
+
+            <Button
+              onPress={() => {
+                deleteStudent(item.id);
+              }}
+            >
+              Delete
+            </Button>
           </TouchableOpacity>
         )}
       />

@@ -12,6 +12,31 @@ export default function AddStudent() {
     age: 24,
     gender: "male",
   };
+  // const [error, setError] = useState("");
+  // const [student, setStudent] = useState({
+  //   id: "",
+  //   name: "",
+  //   age: "",
+  // });
+
+  // function inputHandel(char, field) {
+  //   setStudent((pre) => ({
+  //     ...pre,
+  //     [field]: char,
+  //   }));
+  // }
+  // function newStudent() {
+  //   if (student.id !== "" && student.name !== "" && student.age !== "") {
+  //     navigation.navigate("home", { newStuArray: student });
+  //     setStudent({
+  //       name: "",
+  //       age: "",
+  //       gender: "",
+  //     });
+  //   } else {
+  //     setError("Require all fields...");
+  //   }
+  // }
   return (
     <View>
       <TextInput
@@ -19,7 +44,28 @@ export default function AddStudent() {
         label="Name"
         value={name}
         onChangeText={setName}
+        // onChangeText={(char) => {
+        //   inputHandel(char, "name");
+        // }}
       />
+      {/* <TextInput
+        mode="outlined"
+        label="Age"
+        value={student.age}
+        //onChangeText={setName}
+        onChangeText={(char) => {
+          inputHandel(char, "age");
+        }}
+      />
+      <TextInput
+        mode="outlined"
+        label="Gender"
+        value={student.gender}
+        //onChangeText={setName}
+        onChangeText={(char) => {
+          inputHandel(char, "gender");
+        }}
+      /> */}
       <Button
         onPress={() => {
           navigation.popTo("StudentList", { newStudent });
